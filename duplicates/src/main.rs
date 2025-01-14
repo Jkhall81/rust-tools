@@ -2,6 +2,7 @@ use csv::ReaderBuilder;
 use csv::WriterBuilder;
 use std::collections::HashMap;
 use std::error::Error;
+use std::io::{self, Write};
 
 fn process_file(file: &str, count: &mut HashMap<String, usize>) -> Result<(), Box<dyn Error>> {
     let mut rdr = ReaderBuilder::new()
@@ -18,16 +19,27 @@ fn process_file(file: &str, count: &mut HashMap<String, usize>) -> Result<(), Bo
 }
 
 fn main() -> Result<(), Box<dyn Error>> {
-    // Input and output file names
-    let input_file1 = "21234.csv";
-    let input_file2 = "21235.csv";
-    let output_file = "21234_21235.csv";
+    let mut input_file1 = String::new();
+    let mut input_file2 = String::new();
+    let output_file = "output.csv";
+
+    // Prompt the user for the names of the input files
+    let mut stdout = io::stdout();
+    print!("Enter the name of the first input file: ");
+    stdout.flush()?;
+    io::stdin().read_line(&mut input_file1)?;
+    input_file1 = input_file1.trim().to_string();
+
+    print!("Enter the name of the second input file: ");
+    stdout.flush()?;
+    io::stdin().read_line(&mut input_file2)?;
+    input_file2 = input_file2.trim().to_string();
 
     let mut count: HashMap<String, usize> = HashMap::new();
 
     // Process both input files
-    process_file(input_file1, &mut count)?;
-    process_file(input_file2, &mut count)?;
+    process_file(&input_file1, &mut count)?;
+    process_file(&input_file2, &mut count)?;
 
     // Write duplicates to the output file
     let mut wtr = WriterBuilder::new().from_path(output_file)?;
