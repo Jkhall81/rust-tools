@@ -23,7 +23,6 @@ fn main() -> Result<(), Box<dyn Error>> {
     let mut input_file2 = String::new();
     let output_file = "output.csv";
 
-    // Prompt the user for the names of the input files
     let mut stdout = io::stdout();
     print!("Enter the name of the first input file: ");
     stdout.flush()?;
@@ -37,11 +36,9 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     let mut count: HashMap<String, usize> = HashMap::new();
 
-    // Process both input files
     process_file(&input_file1, &mut count)?;
     process_file(&input_file2, &mut count)?;
 
-    // Write duplicates to the output file
     let mut wtr = WriterBuilder::new().from_path(output_file)?;
     let mut has_duplicates = false;
 
@@ -60,3 +57,4 @@ fn main() -> Result<(), Box<dyn Error>> {
 
     Ok(())
 }
+

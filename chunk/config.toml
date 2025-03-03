@@ -1,0 +1,2 @@
+input_file = "input.txt"
+numbers_per_file = 50000

@@ -38,7 +38,6 @@ fn get_file_names(prompt: &str) -> Vec<String> {
         io::stdin().read_line(&mut input).unwrap();
         files.push(input.trim().to_string()); // Add the trimmed filename
     }
-
     files
 }
 

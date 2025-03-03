@@ -1,0 +1,9 @@
+[package]
+name = "chunk"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+chrono = "*"
+serde = {version = "*", features = ["derive"] }
+toml = "*"

@@ -1,0 +1,4 @@
+total_file = "total.txt"
+clean_file = "clean.txt"
+fdnc_file = "fdnc.txt"
+output_file = "output.txt"
