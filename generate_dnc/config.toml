@@ -1,4 +1,4 @@
-total_file = "total.txt"
-clean_file = "clean.txt"
-fdnc_file = "fdnc.txt"
+total_file = "Final_red.txt"
+clean_file = "all_clean.txt"
+fdnc_file = "federal_dnc.txt"
 output_file = "output.txt"

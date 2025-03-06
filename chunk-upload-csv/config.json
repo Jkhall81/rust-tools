@@ -1,0 +1,5 @@
+{
+  "max_line": 50000,
+  "input_file": "Source_APE.B_VA_03_05_2025_1.csv",
+  "output_folder": "output_chunks"
+}
